@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Griffin Jr. Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='talk__2__XxL_icon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="chat-container">
+        <header>
+            <img src="{{ url_for('static', filename='talk__2__XxL_icon.ico') }}" alt="Chat Icon">
+            <h1>Griffin Jr.</h1>
+            <i><p>Always Here, Always Listening</p></i>
+        </header>
+        <div class="chat-box" id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Type your message here...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <footer>
+        <p>By using this service, you agree to our <a href="{{ url_for('terms') }}">terms and conditions</a>.</p>
+        <p>Copyright 2024 Griffin. All rights reserved from Line Tech.co</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
