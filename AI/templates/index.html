@@ -12,11 +12,13 @@
         <header>
             <img src="{{ url_for('static', filename='talk__2__XxL_icon.ico') }}" alt="Chat Icon">
             <h1>Griffin Jr.</h1>
-            <i><p>Always Here, Always Listening</p></i>
+            <p><i>Always Here, Always Listening</i></p>
         </header>
         <div class="chat-box" id="chat-box"></div>
-        <input type="text" id="user-input" placeholder="Type your message here...">
-        <button onclick="sendMessage()">Send</button>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Chat with Griffin Jr....">
+            <button onclick="sendMessage()">Send</button>
+        </div>
     </div>
     <footer>
         <p>By using this service, you agree to our <a href="{{ url_for('terms') }}">terms and conditions</a>.</p>
@@ -25,3 +27,4 @@
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
+
