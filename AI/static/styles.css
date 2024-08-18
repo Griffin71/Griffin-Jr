@@ -7,11 +7,11 @@ body {
 }
 
 .chat-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
+    max-width: 800px;
+    margin: 75px auto;
+    padding: 60px;
     background-color: rgba(101, 76, 104, 0.9); /* Semi-transparent background */
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -39,12 +39,59 @@ header p {
 .chat-box {
     background-color: #ffffff; /* White background for messages */
     color: #000000; /* Black text for readability */
-    height: 300px;
+    height: 400px;
     padding: 10px;
     overflow-y: scroll;
-    border-radius: 8px;
+    border-radius: 9px;
     margin-bottom: 10px;
     border: 1px solid #ddd; /* Light border to distinguish the box */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 85%;
+    padding: 10px;
+    border-radius: 11px;
+    margin: 6px 0;
+    position: relative;
+}
+
+.message.user {
+    background-color: #654c68; /* User message background */
+    color: #ffffff; /* User message text color */
+    align-self: flex-end;
+    border-top-right-radius: 0;
+}
+
+.message.bot {
+    background-color: #ffffff; /* Bot message background */
+    color: #000000; /* Bot message text color */
+    align-self: flex-start;
+    border-top-left-radius: 0;
+}
+
+.message::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+}
+
+.message.user::before {
+    right: -10px;
+    border-left: 10px solid #654c68; /* User message tail */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.message.bot::before {
+    left: -10px;
+    border-right: 10px solid #ffffff; /* Bot message tail */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #user-input {
