@@ -1,20 +1,37 @@
-function sendMessage() {
-    let userInput = document.getElementById('user-input').value;
-    let chatBox = document.getElementById('chat-box');
-    
-    if (userInput.trim() === '') return;
+document.addEventListener('DOMContentLoaded', function() {
+    const inputField = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-box');
 
-    let userMessage = `<div><strong>You:</strong> ${userInput}</div>`;
-    chatBox.innerHTML += userMessage;
-
-    // Send the user's message to the server and get the response
-    fetch(`/get?msg=${encodeURIComponent(userInput)}`)
-        .then(response => response.text())
-        .then(data => {
-            let botMessage = `<div><strong>Griffin Jr.:</strong> ${data}</div>`;
-            chatBox.innerHTML += botMessage;
+    function sendMessage() {
+        const message = inputField.value.trim();
+        if (message) {
+            // Add the user's message to the chat box
+            chatBox.innerHTML += `<div class="message user-message">You: ${message}</div>`;
+            // Scroll to the bottom
             chatBox.scrollTop = chatBox.scrollHeight;
-        });
+            // Clear the input field
+            inputField.value = '';
 
-    document.getElementById('user-input').value = '';
-}
+            // Fetch response from the server
+            fetch(`/get?msg=${encodeURIComponent(message)}`)
+                .then(response => response.text())
+                .then(botResponse => {
+                    // Add the bot's response to the chat box
+                    chatBox.innerHTML += `<div class="message bot-message">Griffin Jr.: ${botResponse}</div>`;
+                    // Scroll to the bottom
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    }
+
+    // Send message when "Enter" is pressed
+    inputField.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent the default action (e.g., new line)
+            sendMessage();
+        }
+    });
+});
