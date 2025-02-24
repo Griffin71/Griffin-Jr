@@ -22,6 +22,8 @@ Welcome to **Griffin Jr.**, a simple and interactive chatbot built with **Flask*
 
    cd Griffin-Jr
 
+   cd AI
+
 
 ## Installation
 
@@ -49,10 +51,6 @@ pip install nltk
 
    ```bash
    python chatbot.py
-(If it does not work, don't worry, just run):
-
-```bash
-python Flask.py
 
 
 ```
