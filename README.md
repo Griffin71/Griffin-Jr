@@ -17,7 +17,8 @@ Welcome to **Griffin Jr.**, a simple and interactive chatbot built with **Flask*
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/Griffin71/Griffin-Jr.
+   git clone https://github.com/Griffin71/Griffin-Jr.git
+
    cd Griffin-Jr
 
 
